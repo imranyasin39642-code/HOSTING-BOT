@@ -1,3 +1,13 @@
+---
+title: VPS Hosting Panel
+emoji: 🤖
+colorFrom: blue
+colorTo: indigo
+sdk: docker
+app_port: 7860
+pinned: false
+---
+
 # GAMEOVER VPS Hosting Bot
 
 Premium Telegram-based VPS Bot Hosting Manager designed for deployment on Hugging Face Spaces (Docker) or local machines.
