@@ -1,0 +1,55 @@
+# Environment variables
+.env
+
+# Databases
+database/
+*.db
+*.sqlite
+*.sqlite3
+
+# Hosted bots and temporary files
+bots/
+temp_*/
+
+# System and bot logs
+logs/
+*.log
+
+# Python cache and environment
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+pip-log.txt
+pip-delete-this-directory.txt
+
+# System backups and compressed files
+*.zip
+*.tar.gz
+*.tgz
+*.rar
+
+# IDE and OS files
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Telethon/Pyrogram sessions
+*.session
+*.session-journal
+*session*
+
+# Temporary files and charts
+test_qr.png
+*.png
+*.jpg
+*.jpeg
+*.mp4
+*.gif
+
+

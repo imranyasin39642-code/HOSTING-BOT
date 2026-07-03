@@ -1,0 +1,409 @@
+# TELEGRAM HOSTING MANAGER BOT (PYTHON)
+
+## PROJECT GOAL
+
+Build a Telegram Hosting Manager Bot in Python.
+
+The bot will allow the owner to upload Telegram bot files directly through Telegram and manage multiple hosted bots from one central dashboard.
+
+The system should work similarly to commercial Telegram hosting bots.
+
+The owner wants to deploy and manage 10–12 Telegram bots without manually opening the hosting panel every time.
+
+---
+
+## TECH STACK
+
+Language:
+
+* Python 3.11+
+
+Telegram Framework:
+
+* Pyrogram
+
+Database:
+
+* SQLite
+
+Process Management:
+
+* PM2 or Supervisor
+
+Hosting:
+
+* Compatible with JustRunMyApp
+* Compatible with VPS
+* Compatible with Linux servers
+
+---
+
+## USER TYPES
+
+### Owner
+
+Full access.
+
+Can:
+
+* Upload bots
+* Start bots
+* Stop bots
+* Restart bots
+* Delete bots
+* View logs
+* View system usage
+* Manage all hosted bots
+
+---
+
+## MAIN MENU
+
+Buttons:
+
+📤 Upload Bot
+
+📂 My Bots
+
+▶ Start Bot
+
+⏹ Stop Bot
+
+🔄 Restart Bot
+
+📊 Statistics
+
+📜 Logs
+
+👤 Profile
+
+⚙ Settings
+
+---
+
+## UPLOAD SYSTEM
+
+User uploads:
+
+* .py file
+* .zip file
+
+Bot should:
+
+1. Receive file
+2. Create unique folder
+3. Save file
+4. Extract ZIP if needed
+5. Verify main Python file exists
+6. Register bot in database
+
+Example:
+
+/bots/bot_001/
+/bots/bot_002/
+/bots/bot_003/
+
+---
+
+## BOT REGISTRATION
+
+When uploading:
+
+Ask for:
+
+Bot Name
+
+Bot Token
+
+Startup File
+
+Example:
+
+Bot Name:
+Music Bot
+
+Token:
+123456:ABC
+
+Startup File:
+main.py
+
+Save in database.
+
+---
+
+## START BOT
+
+When Start is pressed:
+
+System should:
+
+* Check folder exists
+* Check startup file exists
+* Launch process
+
+Example:
+
+python main.py
+
+Store:
+
+* PID
+* Start time
+* Status
+
+Database update:
+
+Status = Running
+
+---
+
+## STOP BOT
+
+When Stop is pressed:
+
+* Kill process
+* Save status
+
+Database update:
+
+Status = Stopped
+
+---
+
+## RESTART BOT
+
+Restart sequence:
+
+1. Stop process
+2. Wait 2 seconds
+3. Start process again
+
+Update database.
+
+---
+
+## MY BOTS
+
+Display:
+
+Bot Name
+
+Status
+
+Running Time
+
+PID
+
+Folder Size
+
+Buttons:
+
+Start
+
+Stop
+
+Restart
+
+Delete
+
+Logs
+
+---
+
+## STATISTICS PAGE
+
+Show:
+
+Total Bots
+
+Running Bots
+
+Stopped Bots
+
+CPU Usage
+
+RAM Usage
+
+Disk Usage
+
+Server Uptime
+
+Python Version
+
+---
+
+## LOG VIEWER
+
+Show:
+
+Last 100 lines
+
+Buttons:
+
+Refresh
+
+Download Log
+
+Clear Log
+
+---
+
+## PROFILE PAGE
+
+Show:
+
+Owner ID
+
+Username
+
+Total Bots
+
+Running Bots
+
+Storage Used
+
+Account Created
+
+---
+
+## FILE MANAGER
+
+Functions:
+
+View files
+
+Delete files
+
+Rename files
+
+Upload new version
+
+Download backup ZIP
+
+---
+
+## AUTO RESTART
+
+If hosted bot crashes:
+
+* Detect crash
+* Restart automatically
+* Save crash event in logs
+
+Maximum:
+
+5 restart attempts
+
+---
+
+## FOLDER STRUCTURE
+
+/project
+
+/main_bot.py
+
+/database
+
+bots.db
+
+/bots
+
+bot_001
+
+bot_002
+
+bot_003
+
+/logs
+
+/config
+
+---
+
+## DATABASE TABLE
+
+bots
+
+id
+
+name
+
+token
+
+folder
+
+startup_file
+
+pid
+
+status
+
+created_at
+
+last_started
+
+restart_count
+
+---
+
+## SECURITY
+
+Owner-only access.
+
+Unauthorized users receive:
+
+"Access Denied"
+
+Owner ID stored in config.
+
+No public hosting.
+
+No multi-user system.
+
+Only owner can manage bots.
+
+---
+
+## DASHBOARD DESIGN
+
+Style similar to premium Telegram hosting bots.
+
+Use:
+
+* Inline buttons
+* Status icons
+* Clean panels
+* Fast response times
+
+Example:
+
+🟢 Running
+
+🔴 Stopped
+
+🟡 Restarting
+
+---
+
+## FUTURE FEATURES
+
+Phase 2
+
+* Docker support
+* Multi-user hosting
+* Subscription plans
+* Resource limits
+* Automatic backups
+* Remote server deployment
+* GitHub deployment support
+
+---
+
+## FINAL OBJECTIVE
+
+One Telegram bot should act as a Hosting Manager.
+
+The owner uploads new bot files through Telegram.
+
+The Hosting Manager automatically stores, starts, stops, restarts, monitors, and manages all uploaded bots from a single Telegram dashboard.
